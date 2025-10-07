@@ -1,6 +1,33 @@
 <html>
 <head>
-  
+    <script>
+        var op; 
+
+        function func() {
+            var result;
+            var num1 = Number(document.getElementById("number1").value);
+            var num2 = Number(document.getElementById("number2").value);
+            switch (op) {
+              case '+':
+              result = num1 + num2;
+              break;
+              case '-':
+              result = num1 - num2;
+              break;
+              case '*':
+              result = num1 * num2;
+              break;
+              case '/':
+              result = num1 / num2;
+              break;
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+        function setOperation(tag) {
+          op = tag.innerHTML;
+          document.getElementById('operationLabel').innerHTML = 'Операция: ' + op;
+        }
+    </script>
 </head>
 <body>
   <table>
@@ -9,10 +36,11 @@
         <input id="number1" />
 
         <div id="operationButtons">
-          <button id="plus" >+</button>
-          <button id="minus" >-</button>
-          <button id="times" >x</button>
-          <button id="divide" >:</button>
+          <button onclick="setOperation(this)">+</button>
+          <button onclick="setOperation(this)">-</button>
+          <button onclick="setOperation(this)">x</button>
+          <button onclick="setOperation(this)">:</button>
+          <label id="operationLabel">Операция: не выбрана</label>
         </div>
 
         <input id="number2" />
@@ -23,29 +51,6 @@
     </tr>
   </table>
   
-<script>
-    var op; 
 
-    function func() {
-    var result;
-    var num1 = Number(document.getElementById("number1").value);
-    var num2 = Number(document.getElementById("number2").value);
-    switch (op) {
-      case '+':
-      result = num1 + num2;
-      break;
-      case '-':
-      result = num1 - num2;
-      break;
-      case '*':
-      result = num1 * num2;
-      break;
-      case '/':
-      result = num1 / num2;
-      break;
-    }
-    document.getElementById("result").innerHTML = result;
-    }
-  </script>
 <body>
 </html>
